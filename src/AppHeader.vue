@@ -12,10 +12,9 @@ export default {
 </template>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 header {
     background-color: white;
-    max-width: 1500px;
     margin: 0 auto;
     padding: 20px;
     display: flex;
