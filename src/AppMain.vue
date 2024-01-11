@@ -5,9 +5,16 @@ export default {
 </script>
 
 <template lang="">
-    <div>
-        <h1>Prova Prova</h1>
-    </div>
+    <main>
+        
+    </main>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    height: 600px;
+    background-color: white;
+}
+</style>
