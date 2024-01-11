@@ -1,11 +1,12 @@
 <script>
 import axios from 'axios';
+import { store } from '../src/store.js';
 
 export default {
     name: 'AppMain',
     data() {
         return {
-            cardList: []
+            store
         }
     },
     created() {
@@ -15,7 +16,7 @@ export default {
     methods: {
         getcard() {
             axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=25&offset=0').then((response) => {
-                this.cardList = response.data.data;
+                store.cardList = response.data.data;
                 console.log(this.cardList)
             });
         }
@@ -25,7 +26,9 @@ export default {
 
 <template lang="">
     <main>
-        <div class="card"></div>
+        <div class="card">
+            <img src="" alt="">
+        </div>
         <div class="card"></div>
         <div class="card"></div>
         <div class="card"></div>
