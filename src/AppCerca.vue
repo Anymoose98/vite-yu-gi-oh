@@ -18,7 +18,7 @@ export default {
         getArchetypesList() {
             axios.get(store.apiArchetypeUrl).then((response) => {
                 this.ArchetypesList = response.data
-                console.log(response.data)
+                console.log(this.ArchetypesList)
             });
         }
     }
@@ -31,7 +31,8 @@ export default {
 <template lang="">
     <div>
         <select>
-            <option value="">Tutti</option>
+            <option :value="Archetype.archetype_name" v-for="Archetype, index in ArchetypesList" :key="index" > {{Archetype.archetype_name}} </option>
+            
         </select>
     </div>
 </template>
