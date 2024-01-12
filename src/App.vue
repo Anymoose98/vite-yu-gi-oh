@@ -1,5 +1,6 @@
 <script>
 import AppHeader from './AppHeader.vue';
+import AppCerca from './AppCerca.vue';
 import AppMain from './AppMain.vue';
 import axios from 'axios';
 import { store } from '../src/store.js';
@@ -7,7 +8,9 @@ import { store } from '../src/store.js';
 export default {
   components: {
     AppHeader,
+    AppCerca,
     AppMain,
+
   },
   data() {
     return {
@@ -30,6 +33,7 @@ export default {
 
 <template lang="">
     <AppHeader />
+    <AppCerca />
     <AppMain />
 </template>
 
