@@ -1,7 +1,30 @@
 <script>
+import { store } from '../src/store.js';
+import axios from 'axios';
+
 export default {
-    name: 'AppCerca'
+    name: 'AppCerca',
+
+    data() {
+        return {
+            store,
+            ArchetypesList: []
+        }
+    },
+    created() {
+        this.getArchetypesList();
+    },
+    methods: {
+        getArchetypesList() {
+            axios.get(store.apiArchetypeUrl).then((response) => {
+                this.ArchetypesList = response.data
+                console.log(response.data)
+            });
+        }
+    }
 }
+
+
 </script>
 
 
@@ -23,7 +46,6 @@ div {
         padding: 5px 10px;
         font-weight: 800;
         border-radius: 10px;
-        border: 0px;
     }
 }
 </style>
