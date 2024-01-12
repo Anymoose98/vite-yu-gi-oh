@@ -1,5 +1,4 @@
 <script>
-import axios from 'axios';
 import { store } from '../src/store.js';
 import AppCarta from './AppCarta.vue';
 
@@ -10,22 +9,12 @@ export default {
     },
 
     name: 'AppMain',
+
     data() {
         return {
             store
         }
     },
-    created() {
-        this.getcard();
-    },
-
-    methods: {
-        getcard() {
-            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=25&offset=0').then((response) => {
-                store.cardList = response.data.data;
-            });
-        }
-    }
 }
 </script>
 
@@ -42,8 +31,5 @@ main {
     background-color: white;
     display: flex;
     flex-wrap: wrap;
-
-
-
 }
 </style>
