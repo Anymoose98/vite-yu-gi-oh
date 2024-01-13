@@ -8,6 +8,7 @@ export default {
     data() {
         return {
             store,
+            ricercaArchetype: "Tutti",
             ArchetypesList: []
         }
     },
@@ -18,9 +19,20 @@ export default {
         getArchetypesList() {
             axios.get(store.apiArchetypeUrl).then((response) => {
                 this.ArchetypesList = response.data
-                console.log(this.ArchetypesList)
             });
-        }
+        },
+
+        metodoRicerca() {
+            axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+                .then((response) => {
+                    // Solo il primo 
+                    {
+                        this.firstArchetype = response.data[0];
+                        console.log(this.firstArchetype);
+                    }
+
+                });
+        },
     }
 }
 
@@ -30,7 +42,8 @@ export default {
 
 <template lang="">
     <div>
-        <select>
+        <select v-model="ricercaArchetype"  @change="metodoRicerca">
+            <option value="Tutti">Tutti</option>
             <option :value="Archetype.archetype_name" v-for="Archetype, index in ArchetypesList" :key="index" > {{Archetype.archetype_name}} </option>
             
         </select>

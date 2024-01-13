@@ -14,7 +14,8 @@ export default {
   },
   data() {
     return {
-      store
+      store,
+
     }
   },
   created() {
@@ -26,7 +27,9 @@ export default {
         store.cardList = response.data.data;
 
       });
-    }
+    },
+
+
   }
 }
 </script>
