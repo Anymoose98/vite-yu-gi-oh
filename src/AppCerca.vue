@@ -27,7 +27,7 @@ export default {
                 .then((response) => {
                     // Solo il primo 
                     {
-                        store.ricercaArchetype = response.data[3];
+                        store.ricercaArchetype = response.data[2].archetype_name;
                         console.log(store.ricercaArchetype);
                     }
 
