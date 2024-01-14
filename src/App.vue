@@ -15,35 +15,50 @@ export default {
   data() {
     return {
       store,
-
     }
   },
+
+  // computed: {
+  //   computedCardList() {
+  //     this.getcard();
+  //     return store.ricercaArchetype;
+  //   },
+  // },
+
   created() {
     this.getcard();
   },
+
+  watch: {
+    'store.ricercaArchetype': 'getcard',
+  },
+
   methods: {
     getcard() {
+
       let apiModificabile = store.apiUrl
 
-      if (store.ricercaArchetype != '') {
-        apiModificabile += '&name= ${store.ricercaArchetype}';
-        console.log(apiModificabile)
+
+      if (store.ricercaArchetype !== '' && store.ricercaArchetype !== 'Tutti') {
+        apiModificabile += '&archetype=' + store.ricercaArchetype;
       }
 
-      axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=55&offset=0').then((response) => {
-        store.cardList = response.data.data;
-      });
+      axios.get(apiModificabile)
+        .then((response) => {
+          store.cardList = response.data.data;
+        });
     },
+  },
 
 
-  }
 }
 </script>
 
 
 <template lang="">
     <AppHeader />
-    <AppCerca />
+    <AppCerca /> 
+    <!-- @ricerca="getcard" -->
     <AppMain />
 </template>
 

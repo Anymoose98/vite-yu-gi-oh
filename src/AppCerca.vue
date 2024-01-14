@@ -20,23 +20,6 @@ export default {
                 this.ArchetypesList = response.data
             });
         },
-
-        metodoRicerca() {
-
-            let apiModificabile = store.apiUrl
-
-            if (store.ricercaArchetype != '') {
-                apiModificabile += '&name=' + store.ricercaArchetype;
-                console.log(apiModificabile)
-            }
-            axios.get(store.apiArchetypeUrl)
-                .then((response) => {
-                    {
-                        console.log(store.ricercaArchetype)
-                    }
-
-                });
-        },
     }
 }
 
@@ -47,7 +30,7 @@ export default {
 <template lang="">
     <div>{{store.ricercaArchetype}}</div>
     <div>
-        <select v-model="store.ricercaArchetype"  @change="metodoRicerca">
+        <select v-model="store.ricercaArchetype"  @change="$emit('getcard')" >
             <option value="Tutti">Tutti</option>
             <option :value="Archetype.archetype_name" v-for="Archetype, index in ArchetypesList" :key="index" > {{Archetype.archetype_name}} </option>
             
