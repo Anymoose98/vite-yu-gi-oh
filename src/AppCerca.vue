@@ -27,8 +27,8 @@ export default {
                 .then((response) => {
                     // Solo il primo 
                     {
-                        this.firstArchetype = response.data[0];
-                        console.log(this.firstArchetype);
+                        store.ricercaArchetype = response.data[3];
+                        console.log(store.ricercaArchetype);
                     }
 
                 });
@@ -41,6 +41,7 @@ export default {
 
 
 <template lang="">
+    <div>{{store.ricercaArchetype}}</div>
     <div>
         <select v-model="ricercaArchetype"  @change="metodoRicerca">
             <option value="Tutti">Tutti</option>
