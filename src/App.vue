@@ -18,20 +18,15 @@ export default {
     }
   },
 
-  // computed: {
-  //   computedCardList() {
-  //     this.getcard();
-  //     return store.ricercaArchetype;
-  //   },
-  // },
+
 
   created() {
     this.getcard();
   },
 
-  watch: {
-    'store.ricercaArchetype': 'getcard',
-  },
+  // watch: {
+  //   'store.ricercaArchetype': 'getcard',
+  // },
 
   methods: {
     getcard() {
@@ -57,7 +52,7 @@ export default {
 
 <template lang="">
     <AppHeader />
-    <AppCerca /> 
+    <AppCerca @cerca="getcard"/> 
     <!-- @ricerca="getcard" -->
     <AppMain />
 </template>

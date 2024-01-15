@@ -28,9 +28,8 @@ export default {
 
 
 <template lang="">
-    <div>{{store.ricercaArchetype}}</div>
     <div>
-        <select v-model="store.ricercaArchetype"  @change="$emit('getcard')" >
+        <select v-model="store.ricercaArchetype"  @change="$emit('cerca')" >
             <option value="Tutti">Tutti</option>
             <option :value="Archetype.archetype_name" v-for="Archetype, index in ArchetypesList" :key="index" > {{Archetype.archetype_name}} </option>
             
